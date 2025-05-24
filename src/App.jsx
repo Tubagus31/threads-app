@@ -19,9 +19,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // if(api.getAccessToken()) {
-
-    // }
     dispatch(asyncPreloadProcess());
   }, [dispatch]);
 
