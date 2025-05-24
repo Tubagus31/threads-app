@@ -137,7 +137,7 @@ describe("threadsReducer function", () => {
   });
 
   // DOWN_VOTE_THREAD action
-  it("should return all the threads when given by DOWN_VOTE_THREAD action", () => {
+  it("should update all the threads when given by DOWN_VOTE_THREAD action", () => {
     const initialState = [
       {
         id: "thread-1",

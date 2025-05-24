@@ -1,9 +1,9 @@
-import { showLoading } from 'react-redux-loading-bar';
-import usersAPI from '../../utils/API/usersAPI';
-import { hideLoading } from 'react-redux-loading-bar';
+import { showLoading } from "react-redux-loading-bar";
+import usersAPI from "../../utils/API/usersAPI";
+import { hideLoading } from "react-redux-loading-bar";
 
 const ActionType = {
-  GET_LEADERBOARDS: 'GET_LEADERBOARDS',
+  GET_LEADERBOARDS: "GET_LEADERBOARDS",
 };
 
 const leaderboardActionCreator = (leaderboards) => {
@@ -30,4 +30,4 @@ const asyncGetLeaderboards = () => {
   };
 };
 
-export { ActionType, asyncGetLeaderboards };
+export { ActionType, leaderboardActionCreator, asyncGetLeaderboards };

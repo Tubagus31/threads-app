@@ -75,8 +75,7 @@ body {
   font-size: 48px;
 }
 
-.login-input input,
-.register-input input {
+.login-input input {
   display: block;
   width: 100%;
   padding: 12px 8px;
@@ -87,8 +86,7 @@ body {
   border: 1px solid var(--gray-dark-color);
 }
 
-.login-input button,
-.register-input button {
+.login-input button {
   margin-top: 12px;
   width: 100%;
   padding: 12px 8px;
@@ -347,51 +345,6 @@ body {
   color: white;
 }
 
-.leaderboard-item {
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  color: white;
-  margin: 20px;
-}
-
-.leaderboard-item-user {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.leaderboard-item-user img {
-  border-radius: 50%;
-}
-
-.leaderboard-item-user-number {
-  width: 25px;
-}
-
-.leaderboard-item-score {
-  display: flex;
-  align-items: center;
-}
-
-.thread-input {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.thread-input-single {
-  border-radius: 5px;
-  height: 3em;
-  padding: 10px;
-}
-
-.thread-input-area {
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.thread-input-submit,
 .comment-input-submit {
   background-color: gray;
   width: 100%;
@@ -401,12 +354,6 @@ body {
   border-color: transparent;
   cursor: pointer;
   color: white;
-}
-
-.thread-input-single:focus,
-.thread-input-area:focus {
-  border: none;
-  outline: none;
 }
 
 .thread-detail-title {
@@ -521,23 +468,6 @@ body {
     gap: 8px;
     padding: 0 1em;
     font-size: 16px;
-  }
-
-  .leaderboard-item {
-    flex-direction: column;
-    align-items: center;
-    margin: 15px 10px;
-    font-size: 16px;
-    gap: 10px;
-    text-align: center;
-  }
-
-  .leaderboard-item-user {
-    justify-content: center;
-  }
-
-  .leaderboard-item-score {
-    justify-content: center;
   }
 
   .leaderboard-title,

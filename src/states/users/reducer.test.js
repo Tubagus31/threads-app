@@ -12,7 +12,7 @@ describe("usersReducer function", () => {
   });
 
   // GET_ALL_USERS action
-  it("should return the initial state when ", () => {
+  it("should return the initial state when given by GET_ALL_USERS action", () => {
     const initialState = [];
     const action = {
       type: "GET_ALL_USERS",
