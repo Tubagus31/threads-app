@@ -18,7 +18,7 @@ function RegisterInput({ register }) {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
+        placeholder="username"
       />
       <input
         type="password"
