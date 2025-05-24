@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import Loading from './components/Loading';
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
-import Navigation from './components/Navigation';
-import RegisterPage from './pages/RegisterPage';
-import DetailPage from './pages/DetailPage';
-import { asyncPreloadProcess } from './states/isPreload/action';
-import { asyncUnsetAuthUser } from './states/authUser/action';
-import LeaderBoardPage from './pages/LeaderBoardPage';
-import CreateThreadPage from './pages/CreateThreadPage';
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import Loading from "./components/Loading";
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import Navigation from "./components/Navigation";
+import RegisterPage from "./pages/RegisterPage";
+import DetailPage from "./pages/DetailPage";
+import { asyncPreloadProcess } from "./states/isPreload/action";
+import { asyncUnsetAuthUser } from "./states/authUser/action";
+import LeaderBoardPage from "./pages/LeaderBoardPage";
+import CreateThreadPage from "./pages/CreateThreadPage";
+import api from "./utils/API";
 
 function App() {
   const authUser = useSelector((state) => state.authUser) ?? null;
@@ -18,6 +19,9 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // if(api.getAccessToken()) {
+
+    // }
     dispatch(asyncPreloadProcess());
   }, [dispatch]);
 
