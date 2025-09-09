@@ -1,11 +1,23 @@
-import { describe, it, expect } from "vitest";
-import threadsReducer from "./reducer";
+/**
+ * test scenarios for threadsReducer
+ *
+ * - threadsReducer function
+ *   - should return the initial state when given by unknown action
+ *   - should return all the threads when given by GET_ALL_THREADS action
+ *   - should add a new thread to the beginning of the list when given by CREATE_THREAD action
+ *   - should update the upVotesBy of the specific thread when given by UP_VOTE_THREAD action
+ *   - should update the downVotesBy of the specific thread when given by DOWN_VOTE_THREAD action
+ *   - should remove the userId from upVotesBy and downVotesBy when given by NEUTRALIZE_VOTE_THREAD action
+ */
 
-describe("threadsReducer function", () => {
+import { describe, it, expect } from 'vitest';
+import threadsReducer from './reducer';
+
+describe('threadsReducer function', () => {
   // Unknown Action
-  it("should return the initial state when given by unknown action", () => {
+  it('should return the initial state when given by unknown action', () => {
     const intitalState = [];
-    const action = { type: "UNKNOWN" };
+    const action = { type: 'UNKNOWN' };
 
     const nextState = threadsReducer(intitalState, action);
 
@@ -13,30 +25,30 @@ describe("threadsReducer function", () => {
   });
 
   // GET_ALL_THREADS action
-  it("should return all the threads when given by GET_ALL_THREADS action", () => {
+  it('should return all the threads when given by GET_ALL_THREADS action', () => {
     const initialState = [];
     const action = {
-      type: "GET_ALL_THREADS",
+      type: 'GET_ALL_THREADS',
       payload: {
         threads: [
           {
-            id: "thread-1",
-            title: "Thread Pertama",
-            body: "Ini adalah thread pertama",
-            category: "General",
-            createdAt: "2021-06-21T07:00:00.000Z",
-            ownerId: "users-1",
+            id: 'thread-1',
+            title: 'Thread Pertama',
+            body: 'Ini adalah thread pertama',
+            category: 'General',
+            createdAt: '2021-06-21T07:00:00.000Z',
+            ownerId: 'users-1',
             upVotesBy: [],
             downVotesBy: [],
             totalComments: 0,
           },
           {
-            id: "thread-2",
-            title: "Thread Kedua",
-            body: "Ini adalah thread kedua",
-            category: "General",
-            createdAt: "2021-06-21T07:00:00.000Z",
-            ownerId: "users-2",
+            id: 'thread-2',
+            title: 'Thread Kedua',
+            body: 'Ini adalah thread kedua',
+            category: 'General',
+            createdAt: '2021-06-21T07:00:00.000Z',
+            ownerId: 'users-2',
             upVotesBy: [],
             downVotesBy: [],
             totalComments: 0,
@@ -51,30 +63,30 @@ describe("threadsReducer function", () => {
   });
 
   // CREATE_THREAD action
-  it("should return all the threads when given by CREATE_THREAD action", () => {
+  it('should add a new thread to the beginning of the list when given by CREATE_THREAD action', () => {
     const initialState = [
       {
-        id: "thread-1",
-        title: "Thread Pertama",
-        body: "Ini adalah thread pertama",
-        category: "General",
-        createdAt: "2021-06-21T07:00:00.000Z",
-        ownerId: "users-1",
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
       },
     ];
     const action = {
-      type: "CREATE_THREAD",
+      type: 'CREATE_THREAD',
       payload: {
         thread: {
-          id: "thread-2",
-          title: "Thread Kedua",
-          body: "Ini adalah thread kedua",
-          category: "General",
-          createdAt: "2021-06-21T07:00:00.000Z",
-          ownerId: "users-2",
+          id: 'thread-2',
+          title: 'Thread Kedua',
+          body: 'Ini adalah thread kedua',
+          category: 'General',
+          createdAt: '2021-06-21T07:00:00.000Z',
+          ownerId: 'users-2',
           upVotesBy: [],
           downVotesBy: [],
           totalComments: 0,
@@ -88,26 +100,26 @@ describe("threadsReducer function", () => {
   });
 
   // UP_VOTE_THREAD action
-  it("should return all the threads when given by UP_VOTE_THREAD action", () => {
+  it('should update the upVotesBy of the specific thread when given by UP_VOTE_THREAD action', () => {
     const initialState = [
       {
-        id: "thread-1",
-        title: "Thread Pertama",
-        body: "Ini adalah thread pertama",
-        category: "General",
-        createdAt: "2021-06-21T07:00:00.000Z",
-        ownerId: "users-1",
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
       },
       {
-        id: "thread-2",
-        title: "Thread Kedua",
-        body: "Ini adalah thread kedua",
-        category: "General",
-        createdAt: "2021-06-21T07:00:00.000Z",
-        ownerId: "users-2",
+        id: 'thread-2',
+        title: 'Thread Kedua',
+        body: 'Ini adalah thread kedua',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-2',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
@@ -115,10 +127,10 @@ describe("threadsReducer function", () => {
     ];
 
     const action = {
-      type: "UP_VOTE_THREAD",
+      type: 'UP_VOTE_THREAD',
       payload: {
-        threadId: "thread-2",
-        userId: "john_doe",
+        threadId: 'thread-2',
+        userId: 'john_doe',
       },
     };
 
@@ -137,26 +149,26 @@ describe("threadsReducer function", () => {
   });
 
   // DOWN_VOTE_THREAD action
-  it("should update all the threads when given by DOWN_VOTE_THREAD action", () => {
+  it('should update the downVotesBy of the specific thread when given by DOWN_VOTE_THREAD action', () => {
     const initialState = [
       {
-        id: "thread-1",
-        title: "Thread Pertama",
-        body: "Ini adalah thread pertama",
-        category: "General",
-        createdAt: "2021-06-21T07:00:00.000Z",
-        ownerId: "users-1",
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
       },
       {
-        id: "thread-2",
-        title: "Thread Kedua",
-        body: "Ini adalah thread kedua",
-        category: "General",
-        createdAt: "2021-06-21T07:00:00.000Z",
-        ownerId: "users-2",
+        id: 'thread-2',
+        title: 'Thread Kedua',
+        body: 'Ini adalah thread kedua',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-2',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
@@ -164,10 +176,10 @@ describe("threadsReducer function", () => {
     ];
 
     const action = {
-      type: "DOWN_VOTE_THREAD",
+      type: 'DOWN_VOTE_THREAD',
       payload: {
-        threadId: "thread-1",
-        userId: "john_doe",
+        threadId: 'thread-1',
+        userId: 'john_doe',
       },
     };
 
@@ -186,45 +198,45 @@ describe("threadsReducer function", () => {
   });
 
   // NEUTRALIZE_VOTE_THREAD action
-  it("should return all the threads when given by NEUTRALIZE_VOTE_THREAD action", () => {
+  it('should remove the userId from upVotesBy and downVotesBy when given by NEUTRALIZE_VOTE_THREAD action', () => {
     const initialState = [
       {
-        id: "thread-1",
-        title: "Thread Pertama",
-        body: "Ini adalah thread pertama",
-        category: "General",
-        createdAt: "2021-06-21T07:00:00.000Z",
-        ownerId: "users-1",
-        upVotesBy: ["john_doe"],
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
+        upVotesBy: ['john_doe'],
         downVotesBy: [],
         totalComments: 0,
       },
       {
-        id: "thread-2",
-        title: "Thread Kedua",
-        body: "Ini adalah thread kedua",
-        category: "General",
-        createdAt: "2021-06-21T07:00:00.000Z",
-        ownerId: "users-2",
+        id: 'thread-2',
+        title: 'Thread Kedua',
+        body: 'Ini adalah thread kedua',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-2',
         upVotesBy: [],
-        downVotesBy: ["john_doe"],
+        downVotesBy: ['john_doe'],
         totalComments: 0,
       },
     ];
 
     const action = {
-      type: "NEUTRALIZE_VOTE_THREAD",
+      type: 'NEUTRALIZE_VOTE_THREAD',
       payload: {
-        threadId: "thread-1",
-        userId: "john_doe",
+        threadId: 'thread-1',
+        userId: 'john_doe',
       },
     };
 
     const action2 = {
-      type: "NEUTRALIZE_VOTE_THREAD",
+      type: 'NEUTRALIZE_VOTE_THREAD',
       payload: {
-        threadId: "thread-2",
-        userId: "john_doe",
+        threadId: 'thread-2',
+        userId: 'john_doe',
       },
     };
 

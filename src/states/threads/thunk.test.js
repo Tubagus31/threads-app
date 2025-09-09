@@ -1,11 +1,19 @@
-import { showLoading, hideLoading } from "react-redux-loading-bar";
-import { asyncCreateThread } from "./action";
-import threadsAPI from "../../utils/API/threadsAPI";
-import { vi, describe, it, expect, beforeEach } from "vitest";
+/**
+ * test scenarios for asyncCreateThread thunk
+ *
+ * - asyncCreateThread function
+ *   - should dispatch showLoading and hideLoading when thread creation is successful
+ *   - should call the API with an empty string for category if not provided
+ */
 
-vi.mock("../../utils/API/threadsAPI");
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
+import { asyncCreateThread } from './action';
+import threadsAPI from '../../utils/API/threadsAPI';
+import { vi, describe, it, expect, beforeEach } from 'vitest';
 
-describe("asyncCreateThread thunk function", () => {
+vi.mock('../../utils/API/threadsAPI');
+
+describe('asyncCreateThread thunk function', () => {
   let dispatch;
 
   beforeEach(() => {
@@ -14,8 +22,8 @@ describe("asyncCreateThread thunk function", () => {
     global.alert = vi.fn();
   });
 
-  it("should dispatch showLoading and hideLoading when thread creation is successful", async () => {
-    const fakeThread = { title: "title", body: "body", category: "" };
+  it('should dispatch showLoading and hideLoading when thread creation is successful', async () => {
+    const fakeThread = { title: 'title', body: 'body', category: '' };
     threadsAPI.createThread.mockResolvedValue(fakeThread);
 
     await asyncCreateThread(fakeThread)(dispatch);
@@ -24,9 +32,9 @@ describe("asyncCreateThread thunk function", () => {
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
   });
 
-  it("should call the API with an empty string for category if not provided", async () => {
-    const inputPayload = { title: "judul", body: "isi" }; // tanpa category
-    const expectedPayload = { ...inputPayload, category: "" };
+  it('should call the API with an empty string for category if not provided', async () => {
+    const inputPayload = { title: 'judul', body: 'isi' }; // tanpa category
+    const expectedPayload = { ...inputPayload, category: '' };
     threadsAPI.createThread.mockResolvedValue(expectedPayload);
 
     await asyncCreateThread(inputPayload)(dispatch);

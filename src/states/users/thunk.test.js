@@ -1,21 +1,28 @@
-// action.test.js
-import { asyncRegisterUser } from "./action";
-import usersAPI from "../../utils/API/usersAPI";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+/**
+ * test scenarios for asyncRegisterUser thunk
+ *
+ * - asyncRegisterUser function
+ *   - should call usersAPI.register with the correct payload
+ *   - should call alert with error message if API fails
+ */
 
-vi.mock("../../utils/API/usersAPI");
+import { asyncRegisterUser } from './action';
+import usersAPI from '../../utils/API/usersAPI';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-describe("asyncRegisterUser thunk", () => {
+vi.mock('../../utils/API/usersAPI');
+
+describe('asyncRegisterUser thunk', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     global.alert = vi.fn();
   });
 
-  it("should call usersAPI.register with the correct payload", async () => {
+  it('should call usersAPI.register with the correct payload', async () => {
     const fakeUser = {
-      name: "Gus",
-      email: "gus@example.com",
-      password: "password123",
+      name: 'Gus',
+      email: 'gus@example.com',
+      password: 'password123',
     };
     usersAPI.register.mockResolvedValue();
 
@@ -25,13 +32,13 @@ describe("asyncRegisterUser thunk", () => {
     expect(usersAPI.register).toHaveBeenCalledWith(fakeUser);
   });
 
-  it("should call alert with error message if API fails", async () => {
+  it('should call alert with error message if API fails', async () => {
     const fakeUser = {
-      name: "John",
-      email: "john@example.com",
-      password: "password123",
+      name: 'John',
+      email: 'john@example.com',
+      password: 'password123',
     };
-    const errorMessage = "Email already exists";
+    const errorMessage = 'Email already exists';
     usersAPI.register.mockRejectedValue(new Error(errorMessage));
 
     const thunk = asyncRegisterUser(fakeUser);

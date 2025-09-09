@@ -1,13 +1,13 @@
-import { showLoading } from "react-redux-loading-bar";
-import threadsAPI from "../../utils/API/threadsAPI";
-import { hideLoading } from "react-redux-loading-bar";
+import { showLoading } from 'react-redux-loading-bar';
+import threadsAPI from '../../utils/API/threadsAPI';
+import { hideLoading } from 'react-redux-loading-bar';
 
 const ActionType = {
-  GET_ALL_THREADS: "GET_ALL_THREADS",
-  CREATE_THREAD: "CREATE_THREAD",
-  UP_VOTE_THREAD: "UP_VOTE_THREAD",
-  DOWN_VOTE_THREAD: "DOWN_VOTE_THREAD",
-  NEUTRALIZE_VOTE_THREAD: "NEUTRALIZE_VOTE_THREAD",
+  GET_ALL_THREADS: 'GET_ALL_THREADS',
+  CREATE_THREAD: 'CREATE_THREAD',
+  UP_VOTE_THREAD: 'UP_VOTE_THREAD',
+  DOWN_VOTE_THREAD: 'DOWN_VOTE_THREAD',
+  NEUTRALIZE_VOTE_THREAD: 'NEUTRALIZE_VOTE_THREAD',
 };
 
 const getAllThreadsActionCreation = (threads) => {
@@ -58,7 +58,7 @@ const downVoteThreadActionCreator = ({ threadId, userId }) => {
   };
 };
 
-const asyncCreateThread = ({ title, body, category = "" }) => {
+const asyncCreateThread = ({ title, body, category = '' }) => {
   return async (dispatch) => {
     dispatch(showLoading());
     try {

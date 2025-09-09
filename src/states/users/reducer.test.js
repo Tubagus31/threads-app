@@ -1,10 +1,19 @@
-import { expect, describe, it } from "vitest";
-import usersReducer from "./reducer";
+/**
+ * test scenarios for usersReducer
+ *
+ * - usersReducer function
+ *   - should return the initial state when given by unknown action
+ *   - should return users data when given by GET_ALL_USERS action
+ *
+ */
 
-describe("usersReducer function", () => {
-  it("should return the initial state when given by unknown action", () => {
+import { expect, describe, it } from 'vitest';
+import usersReducer from './reducer';
+
+describe('usersReducer function', () => {
+  it('should return the initial state when given by unknown action', () => {
     const intitalState = [];
-    const action = { type: "UNKNOWN" };
+    const action = { type: 'UNKNOWN' };
 
     const nextState = usersReducer(intitalState, action);
 
@@ -12,29 +21,29 @@ describe("usersReducer function", () => {
   });
 
   // GET_ALL_USERS action
-  it("should return the initial state when given by GET_ALL_USERS action", () => {
+  it('should return users data when given by GET_ALL_USERS action', () => {
     const initialState = [];
     const action = {
-      type: "GET_ALL_USERS",
+      type: 'GET_ALL_USERS',
       payload: {
         users: [
           {
-            id: "john_doe",
-            name: "John Doe",
-            email: "john@example.com",
-            avatar: "https://generated-image-url.jpg",
+            id: 'john_doe',
+            name: 'John Doe',
+            email: 'john@example.com',
+            avatar: 'https://generated-image-url.jpg',
           },
           {
-            id: "jane_doe",
-            name: "Jane Doe",
-            email: "jane@example.com",
-            avatar: "https://generated-image-url.jpg",
+            id: 'jane_doe',
+            name: 'Jane Doe',
+            email: 'jane@example.com',
+            avatar: 'https://generated-image-url.jpg',
           },
           {
-            id: "fulan",
-            name: "Si Fulan",
-            email: "fulan@example.com",
-            avatar: "https://generated-image-url.jpg",
+            id: 'fulan',
+            name: 'Si Fulan',
+            email: 'fulan@example.com',
+            avatar: 'https://generated-image-url.jpg',
           },
         ],
       },

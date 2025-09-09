@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Form = styled.form`
   display: flex;
@@ -33,9 +33,9 @@ const Button = styled.button`
 `;
 
 function RegisterInput({ register }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleRegister = () => {
     register({ name, email, password });

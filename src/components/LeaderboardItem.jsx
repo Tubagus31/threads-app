@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { userItemShape } from "./Thread/ThreadItem";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { userItemShape } from './Thread/ThreadItem';
 
 const LeaderboardItemWrapper = styled.div`
   display: flex;

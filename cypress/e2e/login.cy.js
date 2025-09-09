@@ -1,3 +1,11 @@
+/**
+ * Login Spec
+ * - should display login page correctly
+ * - should display alert when email is empty
+ * - should display alert when password is empty
+ * - should login successfully with correct credentials
+ */
+
 describe("Login spec", () => {
   beforeEach(() => {
     cy.visit("http://localhost:5173/");
@@ -44,7 +52,7 @@ describe("Login spec", () => {
   });
 
   it("should login successfully with correct credentials", () => {
-    cy.get('input[placeholder="Email"]').type("zack123@gmail.com");
+    cy.get('input[placeholder="Email"]').type("gus123@gmail.com");
     cy.get('input[placeholder="Password"]').type("password");
 
     cy.get("button")

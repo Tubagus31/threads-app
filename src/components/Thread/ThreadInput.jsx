@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const ThreadInputWrapper = styled.div`
   display: flex;
@@ -41,9 +41,9 @@ const SubmitButton = styled.button`
 `;
 
 function ThreadInput({ handleThreadSubmit }) {
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [body, setBody] = useState("");
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const [body, setBody] = useState('');
 
   const onSubmit = () => {
     handleThreadSubmit({ title, category, body });

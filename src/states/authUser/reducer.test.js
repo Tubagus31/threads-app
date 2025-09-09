@@ -1,10 +1,19 @@
-import { expect, describe, it } from "vitest";
-import authUserReducer from "./reducer";
+/**
+ * test scenarios for authUserReducer
+ *
+ * - authUserReducer function
+ *    - should return the initial state when given by unknown action
+ *    - should return authUser when given SET_AUTH_USER action
+ *    - should return null when given UNSET_AUTH_USER action
+ */
 
-describe("authUserReducer function", () => {
-  it("should return the initial state when given by unknown action", () => {
+import { expect, describe, it } from 'vitest';
+import authUserReducer from './reducer';
+
+describe('authUserReducer function', () => {
+  it('should return the initial state when given by unknown action', () => {
     const intitalState = [];
-    const action = { type: "UNKNOWN" };
+    const action = { type: 'UNKNOWN' };
 
     const nextState = authUserReducer(intitalState, action);
 
@@ -12,16 +21,16 @@ describe("authUserReducer function", () => {
   });
 
   // SET_AUTH_USER action
-  it("should set the auth user when given SET_AUTH_USER action", () => {
+  it('should return authUser when given SET_AUTH_USER action', () => {
     const initialState = [];
     const action = {
-      type: "SET_AUTH_USER",
+      type: 'SET_AUTH_USER',
       payload: {
         authUser: {
-          id: "john_doe",
-          name: "John Doe",
-          email: "john@example.com",
-          avatar: "https://generated-image-url.jpg",
+          id: 'john_doe',
+          name: 'John Doe',
+          email: 'john@example.com',
+          avatar: 'https://generated-image-url.jpg',
         },
       },
     };
@@ -32,10 +41,10 @@ describe("authUserReducer function", () => {
   });
 
   // UNSET_AUTH_USER action
-  it("should return null when given by UNSET_AUTH_USER action", () => {
+  it('should return null when given UNSET_AUTH_USER action', () => {
     const initialState = [];
     const action = {
-      type: "UNSET_AUTH_USER",
+      type: 'UNSET_AUTH_USER',
       payload: {
         authUser: null,
       },

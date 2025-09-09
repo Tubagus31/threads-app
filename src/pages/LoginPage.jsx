@@ -1,20 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import LoginInput from "../components/LoginInput";
-import { asyncSetAuthUser } from "../states/authUser/action";
-import { FaTwitter } from "react-icons/fa";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import LoginInput from '../components/LoginInput';
+import { asyncSetAuthUser } from '../states/authUser/action';
+import { FaTwitter } from 'react-icons/fa';
 
 function LoginPage() {
   const dispatch = useDispatch();
 
   const onLogin = ({ email, password }) => {
-    if (email === "" || !email) {
+    if (email === '' || !email) {
       alert('"Email" is not allowed to be empty');
       return;
     }
 
-    if (password === "" || !password) {
+    if (password === '' || !password) {
       alert('"Password" is not allowed to be empty');
       return;
     }
